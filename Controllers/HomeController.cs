@@ -6,23 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using HubbleGalaxyHotelApp.Models;
+using HubbleGalaxyHotelApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace HubbleGalaxyHotelApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+    // Replaced ILogger / _logger with ApplicationDBContext / _context
+
+        private readonly ApplicationDbContext _context;
+
+
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
+    // GET: Rooms
         public IActionResult Index()
         {
             return View();
         }
-
+    
         public IActionResult Privacy()
         {
             return View();
