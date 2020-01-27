@@ -25,9 +25,13 @@ namespace HubbleGalaxyHotelApp.Controllers
         }
 
     // GET: Rooms
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var applicationDbContext = await _context.Rooms.ToListAsync();
+
+            var rooms = applicationDbContext;
+
+            return View(rooms);
         }
     
         public IActionResult Privacy()
