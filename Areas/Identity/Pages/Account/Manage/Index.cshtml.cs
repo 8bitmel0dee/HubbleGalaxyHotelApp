@@ -31,11 +31,22 @@ namespace HubbleGalaxyHotelApp.Areas.Identity.Pages.Account.Manage
         [BindProperty]
         public InputModel Input { get; set; }
 
+     
         public class InputModel
         {
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+    // Added First Name and Last Name input properties - Manage Acct page
+
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+    //
+
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -47,7 +58,13 @@ namespace HubbleGalaxyHotelApp.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+
+    // Added First Name and Last Name input - Manage Acct page
+
+                FirstName = user.FirstName,
+                LastName = user.LastName
+    //
             };
         }
 
@@ -88,6 +105,23 @@ namespace HubbleGalaxyHotelApp.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+    // Added First Name and Last Name input - Manage Acct page -- If statements to submit updated first/last name.
+
+            if (Input.FirstName != user.FirstName)
+            {
+                user.FirstName = Input.FirstName;
+            }
+
+            if (Input.LastName != user.LastName)
+            {
+                user.LastName = Input.LastName;
+            }
+
+    // Update DB after submitting updated fields
+
+            await _userManager.UpdateAsync(user);
+
+    //
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
