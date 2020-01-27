@@ -68,3 +68,15 @@ C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\
 C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.RazorTargetAssemblyInfo.cache
 C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.RazorTargetAssemblyInfo.cs
 C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.csproj.CopyComplete
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\bin\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.deps.json
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\bin\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.runtimeconfig.json
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\bin\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.runtimeconfig.dev.json
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\bin\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.dll
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\bin\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.pdb
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\bin\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.Views.dll
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\bin\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.Views.pdb
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.Views.pdb
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.dll
+C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\HubbleGalaxyHotelApp.pdb
