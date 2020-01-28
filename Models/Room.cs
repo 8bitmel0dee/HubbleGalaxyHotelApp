@@ -10,13 +10,19 @@ namespace HubbleGalaxyHotelApp.Models
     public class Room
     {
         public int Id { get; set; }
+
+        [Display(Name = "Room Name")]
         public string RoomName { get; set; }
 
         [Required]
+        [Display(Name = "Price Per Night")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         public double PricePerNight { get; set; }
 
+        [Display(Name = "Room Description")]
         public string RoomDescription { get; set; }
+
+        [Display(Name = "Room Features")]
         public string RoomFeatures { get; set; }
 
         [Display(Name = "Room Image")]
