@@ -1,8 +1,53 @@
-﻿@{
+﻿@*added @model IEnumerable<HubbleGalaxyHotelApp.Models.Room*@
+
+@model IEnumerable<HubbleGalaxyHotelApp.Models.Room>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Hubble Galaxy Hotel</h1>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PricePerNight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomFeatures)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PricePerNight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomFeatures)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

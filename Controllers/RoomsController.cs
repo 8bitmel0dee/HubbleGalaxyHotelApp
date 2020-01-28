@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HubbleGalaxyHotelApp.Data;
 using HubbleGalaxyHotelApp.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HubbleGalaxyHotelApp.Controllers
 {
@@ -14,15 +16,26 @@ namespace HubbleGalaxyHotelApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public RoomsController(ApplicationDbContext context)
+        // Private field to store user manager
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public RoomsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+
+        // Private method to get current user
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Rooms
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Rooms.ToListAsync());
+            var applicationDbContext = await _context.Rooms.ToListAsync();
+
+            var rooms = applicationDbContext;
+
+            return View(rooms);
         }
 
         // GET: Rooms/Details/5
