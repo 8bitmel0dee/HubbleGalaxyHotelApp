@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HubbleGalaxyHotelApp.Data;
 using HubbleGalaxyHotelApp.Models;
+using HubbleGalaxyHotelApp.Models.ViewModels;
 
 namespace HubbleGalaxyHotelApp.Controllers
 {
@@ -14,15 +17,27 @@ namespace HubbleGalaxyHotelApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public ReservationsController(ApplicationDbContext context)
+        // Private field to store user manager
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public ReservationsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+
+        // Private method to get current user
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Reservations
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Reservations.ToListAsync());
+            var applicationDbContext = await _context.Reservations.ToListAsync();
+
+            var reservations = applicationDbContext;
+
+            return View(reservations);
+            
         }
 
         // GET: Reservations/Details/5
@@ -46,7 +61,14 @@ namespace HubbleGalaxyHotelApp.Controllers
         // GET: Reservations/Create
         public IActionResult Create()
         {
-            return View();
+            CreateReservationViewModel vm = new CreateReservationViewModel();
+            vm.PaymentTypes = _context.PaymentTypes.Select(p => new SelectListItem
+            {
+                Text = p.NameOfAccount
+            }
+            ).ToList();
+
+            return View(vm);
         }
 
         // POST: Reservations/Create
