@@ -194,4 +194,3 @@ C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\
 C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\Razor\Views\Rooms\Details.cshtml.g.cs
 C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\Razor\Views\Rooms\Edit.cshtml.g.cs
 C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\Razor\Views\Rooms\Index.cshtml.g.cs
-C:\Users\newforce\Workspace\HubbleGalaxyHotelApp\HubbleGalaxyHotelApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs

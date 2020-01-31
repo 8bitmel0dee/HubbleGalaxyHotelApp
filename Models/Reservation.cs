@@ -10,8 +10,10 @@ namespace HubbleGalaxyHotelApp.Models
 		public int Id { get; set; }
 		
 		public Room Room { get; set; }
+		
 		public int RoomId { get; set; }
 		public int PaymentTypeId { get; set; }
+
 
 		public ApplicationUser ApplicationUser { get; set; }
 		public string UserId { get; set; }

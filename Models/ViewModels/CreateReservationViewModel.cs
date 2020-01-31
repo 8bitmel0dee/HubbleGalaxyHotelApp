@@ -13,6 +13,9 @@ namespace HubbleGalaxyHotelApp.Models.ViewModels
 
             public Reservation Reservation { get; set; }
 
+            public Room Room { get; set; }
+
+
             
         
     }

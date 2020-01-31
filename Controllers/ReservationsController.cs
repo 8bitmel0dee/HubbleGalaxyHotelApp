@@ -31,7 +31,10 @@ namespace HubbleGalaxyHotelApp.Controllers
 
         // GET: Reservations
         public async Task<IActionResult> Index()
+
         {
+            ApplicationUser loggedInUser = await GetCurrentUserAsync();
+
             var applicationDbContext = await _context.Reservations.ToListAsync();
 
             var reservations = applicationDbContext;
@@ -47,6 +50,7 @@ namespace HubbleGalaxyHotelApp.Controllers
             {
                 return NotFound();
             }
+            var user = await GetCurrentUserAsync();
 
             var reservation = await _context.Reservations
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -59,14 +63,27 @@ namespace HubbleGalaxyHotelApp.Controllers
         }
 
         // GET: Reservations/Create
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
             CreateReservationViewModel vm = new CreateReservationViewModel();
+
+    // Created variable - linked to DB to retrieve Room details (Name and Price per Night)
+            var rooms = _context.Rooms.Single(r => r.Id == id);
+    // Assigned rooms variable to ViewModel (for access to data)
+            vm.Room = rooms;
+
             vm.PaymentTypes = _context.PaymentTypes.Select(p => new SelectListItem
             {
+                Value = p.Id.ToString(),
                 Text = p.NameOfAccount
             }
             ).ToList();
+
+            vm.PaymentTypes.Insert(0, new SelectListItem()
+            {
+                Value = "0",
+                Text = "Please choose a Payment Type"
+            });
 
             return View(vm);
         }
@@ -76,15 +93,21 @@ namespace HubbleGalaxyHotelApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RoomId,PaymentTypeId,UserId,StartDate,EndDate")] Reservation reservation)
+        public async Task<IActionResult> Create(int id, CreateReservationViewModel viewmodel)
         {
+            
+
             if (ModelState.IsValid)
             {
-                _context.Add(reservation);
+                ApplicationUser loggedInUser = await GetCurrentUserAsync();
+                viewmodel.Reservation.UserId = loggedInUser.Id;
+                viewmodel.Reservation.RoomId = id;
+
+                _context.Add(viewmodel.Reservation);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new { viewmodel.Reservation.Id });
             }
-            return View(reservation);
+            return View(viewmodel);
         }
 
         // GET: Reservations/Edit/5
