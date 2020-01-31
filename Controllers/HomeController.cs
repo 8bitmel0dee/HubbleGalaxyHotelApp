@@ -14,7 +14,7 @@ namespace HubbleGalaxyHotelApp.Controllers
     public class HomeController : Controller
     {
 
-    // Replaced ILogger / _logger with ApplicationDBContext / _context
+// Replaced ILogger / _logger with ApplicationDBContext / _context
 
         private readonly ApplicationDbContext _context;
 
@@ -24,7 +24,7 @@ namespace HubbleGalaxyHotelApp.Controllers
             _context = context;
         }
 
-    // GET: Rooms
+    // GET: Rooms for Main Page listing
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = await _context.Rooms.ToListAsync();

@@ -67,6 +67,7 @@ namespace HubbleGalaxyHotelApp.Data
                         UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                         StartDate = new DateTime(2020, 01, 08),
                         EndDate = new DateTime(2020, 01, 09)
+                        
 
                     }
                     );
@@ -84,6 +85,15 @@ namespace HubbleGalaxyHotelApp.Data
 
 
 
+                    },
+                    new Room()
+                    {
+                        Id = 2,
+                        RoomName = "Hubble Galaxy Suite",
+                        PricePerNight = 200.00,
+                        RoomDescription = "Nebula ceiling",
+                        RoomFeatures = "Zero gravity capsule",
+                        RoomImage = "Image URL"
                     }
                     );
 
