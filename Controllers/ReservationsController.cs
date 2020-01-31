@@ -17,7 +17,8 @@ namespace HubbleGalaxyHotelApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        // Private field to store user manager
+    // Private field to store user manager
+
         private readonly UserManager<ApplicationUser> _userManager;
 
         public ReservationsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
@@ -26,16 +27,23 @@ namespace HubbleGalaxyHotelApp.Controllers
             _userManager = userManager;
         }
 
-        // Private method to get current user
+    // Private method to get current user
+
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Reservations
         public async Task<IActionResult> Index()
 
         {
+    // Get Current User
+
             ApplicationUser loggedInUser = await GetCurrentUserAsync();
 
+    // Get Reservations from Database / LIST 
+
             var applicationDbContext = await _context.Reservations.ToListAsync();
+
+    // Created variable for database info - for readability
 
             var reservations = applicationDbContext;
 
@@ -50,7 +58,12 @@ namespace HubbleGalaxyHotelApp.Controllers
             {
                 return NotFound();
             }
+
+    // Get Current User
+
             var user = await GetCurrentUserAsync();
+
+    // Get Reservation Details from Database / LIST 
 
             var reservation = await _context.Reservations
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -65,12 +78,19 @@ namespace HubbleGalaxyHotelApp.Controllers
         // GET: Reservations/Create
         public IActionResult Create(int id)
         {
+    // Linked ViewModel
+
             CreateReservationViewModel vm = new CreateReservationViewModel();
 
     // Created variable - linked to DB to retrieve Room details (Name and Price per Night)
+
             var rooms = _context.Rooms.Single(r => r.Id == id);
+
     // Assigned rooms variable to ViewModel (for access to data)
+
             vm.Room = rooms;
+
+    // Assigned payment types database info to Dropdown List / Payment Type
 
             vm.PaymentTypes = _context.PaymentTypes.Select(p => new SelectListItem
             {
@@ -79,6 +99,7 @@ namespace HubbleGalaxyHotelApp.Controllers
             }
             ).ToList();
 
+    // Insert instruction in Dropdown List/ Payment Type
             vm.PaymentTypes.Insert(0, new SelectListItem()
             {
                 Value = "0",
@@ -99,12 +120,27 @@ namespace HubbleGalaxyHotelApp.Controllers
 
             if (ModelState.IsValid)
             {
+
+    // Get and assigned current user
+
                 ApplicationUser loggedInUser = await GetCurrentUserAsync();
+
+    // Assigned Reservation.UserID to current user to ViewModel
+
                 viewmodel.Reservation.UserId = loggedInUser.Id;
+
+    // Assigned Reservation.RoomId to ViewModel
+
                 viewmodel.Reservation.RoomId = id;
 
+    // Add new reservation to database
                 _context.Add(viewmodel.Reservation);
+
+    // Save changes to database
                 await _context.SaveChangesAsync();
+
+    // After new reservation is saved to database, redirects user to Details of new reservation / Confirmation Page
+
                 return RedirectToAction(nameof(Details), new { viewmodel.Reservation.Id });
             }
             return View(viewmodel);

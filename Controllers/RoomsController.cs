@@ -16,7 +16,8 @@ namespace HubbleGalaxyHotelApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        // Private field to store user manager
+// Private field to store user manager
+
         private readonly UserManager<ApplicationUser> _userManager;
 
         public RoomsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
@@ -25,13 +26,17 @@ namespace HubbleGalaxyHotelApp.Controllers
             _userManager = userManager;
         }
 
-        // Private method to get current user
+// Private method to get current user
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Rooms
         public async Task<IActionResult> Index()
         {
+// Get Rooms from Database / LIST 
+
             var applicationDbContext = await _context.Rooms.ToListAsync();
+
+// Created variable for database info - for readability
 
             var rooms = applicationDbContext;
 
@@ -45,9 +50,11 @@ namespace HubbleGalaxyHotelApp.Controllers
             {
                 return NotFound();
             }
+// Get Selected Room Details by its id
 
             var room = await _context.Rooms
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (room == null)
             {
                 return NotFound();
