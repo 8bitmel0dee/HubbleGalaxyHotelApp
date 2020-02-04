@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace HubbleGalaxyHotelApp.Models
 {
     public class PaymentType
     {
         public int Id { get; set; }
+
         public string AccountNumber { get; set; }
         public string NameOfAccount { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

@@ -31,7 +31,7 @@ namespace HubbleGalaxyHotelApp.Controllers
 
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
-        // GET: Reservations
+// GET: Reservations
         public async Task<IActionResult> Index()
 
         {
@@ -51,9 +51,11 @@ namespace HubbleGalaxyHotelApp.Controllers
             
         }
 
-        // GET: Reservations/Details/5
+// GET: Reservations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+     
+
             if (id == null)
             {
                 return NotFound();
@@ -63,10 +65,17 @@ namespace HubbleGalaxyHotelApp.Controllers
 
             var user = await GetCurrentUserAsync();
 
+
     // Get Reservation Details from Database / LIST 
 
             var reservation = await _context.Reservations
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+            var room = await _context.Reservations
+                .Include(r => r.Room)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+
             if (reservation == null)
             {
                 return NotFound();
@@ -75,7 +84,7 @@ namespace HubbleGalaxyHotelApp.Controllers
             return View(reservation);
         }
 
-        // GET: Reservations/Create
+// GET: Reservations/Create
         public IActionResult Create(int id)
         {
     // Linked ViewModel
@@ -106,6 +115,8 @@ namespace HubbleGalaxyHotelApp.Controllers
                 Text = "Please choose a Payment Type"
             });
 
+           
+
             return View(vm);
         }
 
@@ -114,6 +125,7 @@ namespace HubbleGalaxyHotelApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create(int id, CreateReservationViewModel viewmodel)
         {
             
