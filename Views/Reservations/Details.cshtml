@@ -24,6 +24,29 @@
             @Html.DisplayFor(model => model.EndDate)
         </dd>
 
+        @*Logic to display the grand total*@
+
+        @{  var EndDate = Model.EndDate;
+            var StartDate = Model.StartDate;
+            var PricePerNight = Model.Room.PricePerNight;
+           
+
+            var LengthOfStay = (EndDate - StartDate);
+
+            var NumNights = String.Format("{0} night/s", LengthOfStay.Days);
+            var CalculateTotal = LengthOfStay.Days * PricePerNight;
+
+   
+            
+            }
+
+    <dt class="col-sm-2">
+
+    </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Room.RoomName)
         </dt>
@@ -38,6 +61,16 @@
             @Html.DisplayFor(model => model.Room.PricePerNight)
         </dd>
     </dl>
+</div>
+
+<div>
+
+    @NumNights
+
+    <br />
+    <br />
+
+    $@CalculateTotal.00
 </div>
 <div>
     
