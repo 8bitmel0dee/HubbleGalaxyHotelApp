@@ -81,7 +81,7 @@ namespace HubbleGalaxyHotelApp.Data
                         PricePerNight = 108.00,
                         RoomDescription = "A Galaxy Room",
                         RoomFeatures = "A spaceship bed",
-                        RoomImage = "IMAGE URL"
+                        RoomImage = "https://i.imgur.com/VbQIyjw.jpg"
 
 
 
@@ -93,7 +93,7 @@ namespace HubbleGalaxyHotelApp.Data
                         PricePerNight = 200.00,
                         RoomDescription = "Nebula ceiling",
                         RoomFeatures = "Zero gravity capsule",
-                        RoomImage = "Image URL"
+                        RoomImage = "https://i.imgur.com/5whB7Zk.jpg"
                     }
                     );
 
