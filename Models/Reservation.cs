@@ -28,5 +28,6 @@ namespace HubbleGalaxyHotelApp.Models
 		[Display(Name = "End Date")]
 		public DateTime EndDate { get; set; }
 
+		
 	}
 }
