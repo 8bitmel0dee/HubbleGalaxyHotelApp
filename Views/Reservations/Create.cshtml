@@ -4,60 +4,61 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>Reservation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Room.RoomName)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Room.RoomName)
-                </dd>
-
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Room.PricePerNight)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Room.PricePerNight)
-                </dd>
-            </dl>
-                <div class="form-group">
-                    <label asp-for="Reservation.StartDate" class="control-label"></label>
-                    <input asp-for="Reservation.StartDate" class="form-control" />
-                    <span asp-validation-for="Reservation.StartDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Reservation.EndDate" class="control-label"></label>
-                    <input asp-for="Reservation.EndDate" class="form-control" />
-                    <span asp-validation-for="Reservation.EndDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Reservation.PaymentTypeId" class="control-label"></label>
-                    <select asp-for="Reservation.PaymentTypeId" class="form-control" asp-items="@Model.PaymentTypes"></select>
-                </div>
-                
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
+    <body class="create-reservation-body" style="background-image: url('@Url.Content("https://i.imgur.com/lojmGEh.png")');background-size: contain; background-repeat:no-repeat;"  >
+        <h1 class="title-create-reservation" style="text-shadow: 2px 2px #000000">Create a Reservation</h1>
 
 
-</form>
-
-    </div>
-</div>
+        <hr />
 
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <p class="room-name-label" style="font-size: 25px; font-weight: bold; text-shadow: 2px 2px #000000">
+                        @Html.DisplayNameFor(model => model.Room.RoomName) :
+                    <p style="font-size: 35px; font-weight: bolder; text-shadow: 2px 2px #000000">@Html.DisplayFor(model => model.Room.RoomName)</p>
+
+                    <br />
+
+                    <p class="price-label" style="font-size: 25px; font-weight: bold; text-shadow: 2px 2px #000000">
+                        @Html.DisplayNameFor(model => model.Room.PricePerNight) :
+                    </p>
+                    <p style="font-size: 35px; font-weight: bolder; text-shadow: 2px 2px #000000"> @Html.DisplayFor(model => model.Room.PricePerNight)</p>
+
+
+                    <div class="form-group">
+                        <label asp-for="Reservation.StartDate" class="control-label" style="text-shadow: 2px 2px #000000; font-size: large; font-weight: bold;"></label>
+                        <input asp-for="Reservation.StartDate" class="form-control" />
+                        <span asp-validation-for="Reservation.StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.EndDate" class="control-label" style="text-shadow: 2px 2px #000000; font-size: large; font-weight: bold;"></label>
+                        <input asp-for="Reservation.EndDate" class="form-control" />
+                        <span asp-validation-for="Reservation.EndDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.PaymentTypeId" class="control-label" style="text-shadow: 2px 2px #000000; font-size: large; font-weight: bold;"></label>
+                        <select asp-for="Reservation.PaymentTypeId" class="form-control" asp-items="@Model.PaymentTypes"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </body>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

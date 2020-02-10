@@ -77,9 +77,9 @@ namespace HubbleGalaxyHotelApp.Data
                     new Room()
                     {
                         Id = 1,
-                        RoomName = "Galaxy Room",
+                        RoomName = "Galaxy Pod",
                         PricePerNight = 108.00,
-                        RoomDescription = "A Galaxy Room",
+                        RoomDescription = "Room Service to Major Tom",
                         RoomFeatures = "A spaceship bed",
                         RoomImage = "https://i.imgur.com/VbQIyjw.jpg"
 

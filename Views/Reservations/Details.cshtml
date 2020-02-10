@@ -4,76 +4,109 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+    <body class="body-reservation-details d-flex flex-column" style="background-image: url('@Url.Content("https://i.imgur.com/nWnkCsx.jpg")');background-size: auto; background-position: right center; min-height: 100vh;">
 
-<div>
-    <h4>Reservation</h4>
-    <hr />
-    <dl class="row">
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
 
         @*Logic to display the grand total*@
 
-        @{  var EndDate = Model.EndDate;
+        @{ var EndDate = Model.EndDate;
             var StartDate = Model.StartDate;
             var PricePerNight = Model.Room.PricePerNight;
-           
+
 
             var LengthOfStay = (EndDate - StartDate);
 
             var NumNights = String.Format("{0} night/s", LengthOfStay.Days);
             var CalculateTotal = LengthOfStay.Days * PricePerNight;
 
-   
-            
-            }
 
-    <dt class="col-sm-2">
 
-    </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+        }
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.RoomName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.RoomName)
-        </dd>
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.PricePerNight)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.PricePerNight)
-        </dd>
-    </dl>
-</div>
 
-<div>
-    <class ="NumNights">
-        @NumNights
-    </class>
+        
 
-    <br />
-    <br />
+        <div class="card bg-dark text-white border-white float-left" style="width: 25rem; margin-bottom: 35px;">
+            <img class="card-img-top" src="@Html.DisplayFor(model => model.Room.RoomImage)" alt="Card image cap">
 
-    $@CalculateTotal.00
-</div>
-<div>
-    
-    <a asp-action="Index">Back to List</a>
-</div>
+            <div class="card-body text-center border-top">
+                <h1 class="card-title" style="text-shadow: 2px 2px #000000;"> @Html.DisplayFor(model => model.Room.RoomName)</h1>
+                <p class="card-text-start-date" style="font-size: 25px; text-shadow: 2px 2px #000000;">Start Date: @Html.DisplayFor(model => model.StartDate)</p>
+                <p class="card-text-end-date" style="font-size: 25px; text-shadow: 2px 2px #000000;"> End Date: @Html.DisplayFor(model => model.EndDate)</p>
+                <p class="number-nights" style="font-size: 30px; text-shadow: 2px 2px #000000">@NumNights  $@CalculateTotal.00</p>
+            </div>
+        </div>
+
+        
+
+        <div class="youtube-video float-right border-white" style="margin-bottom: 35px;">
+            <iframe width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/OnoNITE-CLc"
+                    frameborder="1"
+                    allowfullscreen></iframe>
+        </div>
+
+        <div class="youtube-video-bowie float-right border-white" style="margin-bottom: 35px;">
+             <iframe width="560" 
+                     height="315" 
+                     src="https://www.youtube.com/embed/iYYRH4apXDo" 
+                     frameborder="1" 
+                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                     allowfullscreen></iframe>
+        </div>
+
+
+
+
+
+
+        @*<div>
+        <h4>Reservation</h4>
+        <hr />
+        <dl class="row">
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StartDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.StartDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EndDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EndDate)
+            </dd>*@
+
+
+
+        @*<dt class="col-sm-2">
+
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.EndDate)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Room.RoomName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Room.RoomName)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Room.PricePerNight)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Room.PricePerNight)
+                </dd>
+            </dl>
+        </div>*@
+
+
+        
+            <a class="btn btn-primary btn-lg text-center float-left" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+        
+    </body>
