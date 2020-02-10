@@ -4,12 +4,26 @@
 @{
     ViewData["Title"] = "Create";
 }
-    <body class="create-reservation-body" style="background-image: url('@Url.Content("https://i.imgur.com/lojmGEh.png")');background-size: contain; background-repeat:no-repeat;"  >
-        <h1 class="title-create-reservation" style="text-shadow: 2px 2px #000000">Create a Reservation</h1>
 
+@*Create Reservation page*@
+
+    @* Main body: Background settings*@
+
+    <body class="create-reservation-body"
+          style="background-image: url('@Url.Content("https://i.imgur.com/lojmGEh.png")');
+                background-size: contain;
+                background-repeat:no-repeat;">
+
+        @*Title - Create a Reservation *@
+
+        <h1 class="title-create-reservation"
+            style="text-shadow: 2px 2px #000000">
+            Create a Reservation
+        </h1>
 
         <hr />
 
+        @*Form - Create a Reservation *@
 
         <div class="row">
             <div class="col-md-4">
@@ -17,46 +31,82 @@
 
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <p class="room-name-label" style="font-size: 25px; font-weight: bold; text-shadow: 2px 2px #000000">
+                    @* Room Name label and Room Name / Price per Night label and price *@
+
+                    <p class="room-name-label"
+                       style="font-size: 25px;
+                         font-weight: bold;
+                         text-shadow: 2px 2px #000000">
                         @Html.DisplayNameFor(model => model.Room.RoomName) :
-                    <p style="font-size: 35px; font-weight: bolder; text-shadow: 2px 2px #000000">@Html.DisplayFor(model => model.Room.RoomName)</p>
+                    <p style="font-size: 35px;
+                         font-weight: bolder;
+                         text-shadow: 2px 2px #000000">
+                        @Html.DisplayFor(model => model.Room.RoomName)
+                    </p>
 
                     <br />
 
-                    <p class="price-label" style="font-size: 25px; font-weight: bold; text-shadow: 2px 2px #000000">
+                    <p class="price-label"
+                       style="font-size: 25px;
+                         font-weight: bold;
+                         text-shadow: 2px 2px #000000">
                         @Html.DisplayNameFor(model => model.Room.PricePerNight) :
                     </p>
-                    <p style="font-size: 35px; font-weight: bolder; text-shadow: 2px 2px #000000"> @Html.DisplayFor(model => model.Room.PricePerNight)</p>
+                    <p style="font-size: 35px;
+                         font-weight: bolder;
+                         text-shadow: 2px 2px #000000">
+                        @Html.DisplayFor(model => model.Room.PricePerNight)
+                    </p>
 
+                    @* Start Date input *@
 
                     <div class="form-group">
-                        <label asp-for="Reservation.StartDate" class="control-label" style="text-shadow: 2px 2px #000000; font-size: large; font-weight: bold;"></label>
+                        <label asp-for="Reservation.StartDate" class="control-label"
+                               style="text-shadow: 2px 2px #000000;
+                                 font-size: large;
+                                 font-weight: bold;">
+                        </label>
                         <input asp-for="Reservation.StartDate" class="form-control" />
                         <span asp-validation-for="Reservation.StartDate" class="text-danger"></span>
                     </div>
+
+                    @* End Date input *@
+
                     <div class="form-group">
-                        <label asp-for="Reservation.EndDate" class="control-label" style="text-shadow: 2px 2px #000000; font-size: large; font-weight: bold;"></label>
+                        <label asp-for="Reservation.EndDate" class="control-label"
+                               style="text-shadow: 2px 2px #000000;
+                                 font-size: large;
+                                 font-weight: bold;">
+
+                        </label>
                         <input asp-for="Reservation.EndDate" class="form-control" />
                         <span asp-validation-for="Reservation.EndDate" class="text-danger"></span>
                     </div>
+
+                    @* Select Payment method dropdown *@
+
                     <div class="form-group">
-                        <label asp-for="Reservation.PaymentTypeId" class="control-label" style="text-shadow: 2px 2px #000000; font-size: large; font-weight: bold;"></label>
+                        <label asp-for="Reservation.PaymentTypeId" class="control-label"
+                               style="text-shadow: 2px 2px #000000;
+                           font-size: large;
+                           font-weight: bold;">
+
+                        </label>
                         <select asp-for="Reservation.PaymentTypeId" class="form-control" asp-items="@Model.PaymentTypes"></select>
                     </div>
+
+                    @* Create/Submit button *@
 
                     <div class="form-group">
                         <input type="submit" value="Create" class="btn btn-primary" />
                     </div>
+                    @* Button to return to Home Page *@
+
+                    <a class="btn btn-secondary btn-sm text-center float-left" asp-controller="Home" asp-action="Index">Back to Home Page</a>
 
 
                 </form>
-
             </div>
-        </div>
-
-
-        <div>
-            <a asp-action="Index">Back to List</a>
         </div>
     </body>
 

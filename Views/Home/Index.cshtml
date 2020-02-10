@@ -7,28 +7,8 @@
 }
 
     <body class="home-page" style="background-image: url('@Url.Content("https://i.imgur.com/hqymAWL.jpg")');background-size: contain;">
-        
-
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RoomName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PricePerNight)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RoomDescription)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RoomFeatures)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
+  
+            
                 @foreach (var item in Model)
 
                 {
@@ -42,25 +22,7 @@
                         </div>
                     </div>
 
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RoomName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PricePerNight)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RoomDescription)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RoomFeatures)
-                        </td>
-                        <td>
-                            <a asp-controller="Rooms" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                        </td>
-                    </tr>
+                   
                 }
-            </tbody>
-        </table>
 
     </body>
