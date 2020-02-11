@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<HubbleGalaxyHotelApp.Models.Reservation>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Your Reservations";
 }
 
-<h1>Index</h1>
+<h1 class="view-reservation-title text-center">View / Cancel Your Reservation</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+</br>
+</br>
+
+
+<table class="table text-white">
     <thead>
         <tr>
             <th>
@@ -21,14 +22,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.EndDate)
             </th>
-            <th></th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.UserId)
+                @Html.DisplayFor(modelItem =>@User.Identity.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
@@ -37,9 +40,9 @@
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Cancel</a>
             </td>
         </tr>
 }

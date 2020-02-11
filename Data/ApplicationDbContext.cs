@@ -79,7 +79,7 @@ namespace HubbleGalaxyHotelApp.Data
                         Id = 1,
                         RoomName = "Galaxy Pod",
                         PricePerNight = 108.00,
-                        RoomDescription = "Room Service to Major Tom",
+                        RoomDescription = "Room Service to Major Tom.",
                         RoomFeatures = "A spaceship bed",
                         RoomImage = "https://i.imgur.com/VbQIyjw.jpg"
 
@@ -94,7 +94,68 @@ namespace HubbleGalaxyHotelApp.Data
                         RoomDescription = "Nebula ceiling",
                         RoomFeatures = "Zero gravity capsule",
                         RoomImage = "https://i.imgur.com/5whB7Zk.jpg"
+                    },
+
+                    new Room()
+                    {
+                        Id = 3,
+                        RoomName = "Whimsical Red Spaceship",
+                        PricePerNight = 108.00,
+                        RoomDescription = "Take a ride in this floor-to-ceiling rocket.",
+                        RoomFeatures = "A few friendly alien guests",
+                        RoomImage = "https://i.imgur.com/P26tsGG.jpg"
+                    },
+
+                    new Room()
+                    {
+                        Id = 4,
+                        RoomName = "Space Odyssey Suite",
+                        PricePerNight = 236.00,
+                        RoomDescription = "Experience the feeling of flying among the stars.",
+                        RoomFeatures = "Triangular whirlpool bath that glows softly under the stars. Steam shower. Wet bar.",
+                        RoomImage = "https://i.imgur.com/4v2J8y5.jpg"
+                    },
+
+                    new Room()
+                    {
+                        Id = 5,
+                        RoomName = "Outer Space Room",
+                        PricePerNight = 182.00,
+                        RoomDescription = "Sleep in a giant crater dressed with astronaut spacesuit bedding as you look up to the planets and stars above.",
+                        RoomFeatures = "Voyages for little ones in a mini-rocket. In-room telescope. Sea-view balcony.",
+                        RoomImage = "https://i.imgur.com/leY3lUu.png"
+                    },
+
+                    new Room()
+                    {
+                        Id = 6,
+                        RoomName = "Gemini Space Capsule",
+                        PricePerNight = 150.00,
+                        RoomDescription = "Replica Gemini capsule bed",
+                        RoomFeatures = "Oversized “moon crater” whirlpool",
+                        RoomImage = "https://i.imgur.com/FHsPwrE.jpg"
+                    },
+
+                    new Room()
+                    {
+                        Id = 7,
+                        RoomName = "Futuristic Space Capsule",
+                        PricePerNight = 100.00,
+                        RoomDescription = "Rooms are so yesterday. Stay in a sleeping capsule!",
+                        RoomFeatures = "Staffed by friendly robots",
+                        RoomImage = "https://i.imgur.com/zU3b0vF.jpg"
+                    },
+
+                    new Room()
+                    {
+                        Id = 8,
+                        RoomName = "Liquid Gravity Moon Suite",
+                        PricePerNight = 1600.00,
+                        RoomDescription = "Decorated with an ultimate commitment to extraterrestrial design, this stunning room makes you feel transported straight to the moon.",
+                        RoomFeatures = "King-size bed designed to look like it is floating in the air. Inspired by the movie 2001.",
+                        RoomImage = "https://i.imgur.com/x6YoYWX.jpg"
                     }
+
                     );
 
         }
