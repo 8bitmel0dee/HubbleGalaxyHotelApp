@@ -28,7 +28,7 @@ namespace HubbleGalaxyHotelApp.Models
         [Display(Name = "Room Image")]
         public string RoomImage { get; set; }
 
-
+        [Display(Name = "User Id")]
         public string UserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }

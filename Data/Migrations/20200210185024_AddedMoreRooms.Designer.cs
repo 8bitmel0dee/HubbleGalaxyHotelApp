@@ -4,14 +4,16 @@ using HubbleGalaxyHotelApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HubbleGalaxyHotelApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200210185024_AddedMoreRooms")]
+    partial class AddedMoreRooms
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -185,7 +187,7 @@ namespace HubbleGalaxyHotelApp.Data.Migrations
                         {
                             Id = 6,
                             PricePerNight = 150.0,
-                            RoomDescription = "Replica of NASA's Gemini capsule",
+                            RoomDescription = "Replica Gemini capsule bed",
                             RoomFeatures = "Oversized “moon crater” whirlpool",
                             RoomImage = "https://i.imgur.com/FHsPwrE.jpg",
                             RoomName = "Gemini Space Capsule"
@@ -193,7 +195,7 @@ namespace HubbleGalaxyHotelApp.Data.Migrations
                         new
                         {
                             Id = 7,
-                            PricePerNight = 200.0,
+                            PricePerNight = 100.0,
                             RoomDescription = "Rooms are so yesterday. Stay in a sleeping capsule!",
                             RoomFeatures = "Staffed by friendly robots",
                             RoomImage = "https://i.imgur.com/zU3b0vF.jpg",
@@ -435,13 +437,13 @@ namespace HubbleGalaxyHotelApp.Data.Migrations
                         {
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b53d1f5-ddd5-466a-9ee5-822ccb753b72",
+                            ConcurrencyStamp = "0b463308-9336-48d5-b34a-6bb98fe4edb6",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHXA0tvQ8At1q18wsxRbTpRQo6X+dSrGe8NYvs2qlYNQWm2vZQP8gF0a0C0cphyKxA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDZWbEejTxwIle1XTGLzJD8WH9v3BtMSm9LwrZY8nOrMyYWTlKVvZ4duqfNfDt7qSA==",
                             PhoneNumber = "123-456-7890",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",

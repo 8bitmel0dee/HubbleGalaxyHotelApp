@@ -4,76 +4,108 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+@*Reservation Details page*@
 
-<div>
-    <h4>Reservation</h4>
-    <hr />
-    <dl class="row">
+    @* Main body: Background settings / Flex to fix footer issue *@
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+    <body class="body-reservation-details d-flex flex-column" 
+          style="background-image: url('@Url.Content("https://i.imgur.com/nWnkCsx.jpg")');
+                 background-size: auto; 
+                 background-position: right center; 
+                 min-height: 100vh;">
 
-        @*Logic to display the grand total*@
 
-        @{  var EndDate = Model.EndDate;
-            var StartDate = Model.StartDate;
-            var PricePerNight = Model.Room.PricePerNight;
-           
+    @*Logic to display the grand total*@
 
-            var LengthOfStay = (EndDate - StartDate);
-
-            var NumNights = String.Format("{0} night/s", LengthOfStay.Days);
-            var CalculateTotal = LengthOfStay.Days * PricePerNight;
-
-   
+        @{  
+            // Created variables with End Date / Start Date / Price per Night data to calculate grand total
             
-            }
+                var EndDate = Model.EndDate;
+                var StartDate = Model.StartDate;
+                var PricePerNight = Model.Room.PricePerNight;
 
-    <dt class="col-sm-2">
+            // Created variable to calculate length of stay 
 
-    </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+                var LengthOfStay = (EndDate - StartDate);
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.RoomName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.RoomName)
-        </dd>
+            // Calculate num of nights * Price per night to get grand total
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Room.PricePerNight)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Room.PricePerNight)
-        </dd>
-    </dl>
-</div>
+                var NumNights = String.Format("{0} night/s", LengthOfStay.Days);
+                var CalculateTotal = LengthOfStay.Days * PricePerNight;
+        }
 
-<div>
-    <class ="NumNights">
-        @NumNights
-    </class>
+    @* Reservation Details bootstrap card *@
 
-    <br />
-    <br />
+        <div class="card bg-dark text-white border-white float-left" 
+             style=
+                    "width: 25rem; 
+                     margin-bottom: 35px;">
 
-    $@CalculateTotal.00
-</div>
-<div>
-    
-    <a asp-action="Index">Back to List</a>
-</div>
+            <img class="card-img-top" src="@Html.DisplayFor(model => model.Room.RoomImage)" alt="RoomImage">
+
+            <div class="card-body text-center border-top">
+                <h1 class="card-title" 
+                    style=
+                         "text-shadow: 2px 2px #000000;"> 
+                                @Html.DisplayFor(model => model.Room.RoomName)
+                </h1>
+
+                <p class="card-text-start-date" 
+                   style=
+                        "font-size: 25px; 
+                         text-shadow: 2px 2px #000000;">
+                              Start Date: @Html.DisplayFor(model => model.StartDate)
+                </p>
+
+                <p class="card-text-end-date" 
+                   style=
+                        "font-size: 25px; 
+                         text-shadow: 2px 2px #000000;"> 
+                              End Date: @Html.DisplayFor(model => model.EndDate)
+                </p>
+
+                <p class="number-nights" 
+                   style=
+                        "font-size: 30px; 
+                         text-shadow: 2px 2px #000000">
+                              @NumNights  $@CalculateTotal.00
+                </p>
+
+            </div>
+        </div>
+
+        
+    @* YouTube videos: Space Shuttle (Discovery) lift off and David Bowie 'Space Oddity' music video *@
+
+        <div class="youtube-video-spaceshuttle-liftoff float-right border-white" 
+             style=
+                  "margin-bottom: 35px;">
+
+           <iframe width="560"
+                   height="315"
+                   src="https://www.youtube.com/embed/OnoNITE-CLc"
+                   frameborder="1"
+                   allowfullscreen>
+
+           </iframe>
+        </div>
+
+        <div class="youtube-video-bowie-space-oddity float-right border-white" 
+             style=
+                  "margin-bottom: 35px;">
+
+             <iframe width="560" 
+                     height="315" 
+                     src="https://www.youtube.com/embed/iYYRH4apXDo" 
+                     frameborder="1" 
+                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                     allowfullscreen>
+
+             </iframe>
+        </div>
+
+    @* Button to return to Home Page *@
+
+             <a class="btn btn-primary btn-lg text-center float-left" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+        
+    </body>

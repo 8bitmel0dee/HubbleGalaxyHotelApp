@@ -123,6 +123,7 @@ namespace HubbleGalaxyHotelApp.Controllers
         // POST: Reservations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -133,17 +134,18 @@ namespace HubbleGalaxyHotelApp.Controllers
             if (ModelState.IsValid)
             {
 
-    // Get and assigned current user
+    // Get and assign current user
 
                 ApplicationUser loggedInUser = await GetCurrentUserAsync();
 
-    // Assigned Reservation.UserID to current user to ViewModel
+    // Assign Reservation.UserID to current user to ViewModel
 
                 viewmodel.Reservation.UserId = loggedInUser.Id;
 
-    // Assigned Reservation.RoomId to ViewModel
+    // Assign Reservation.RoomId to ViewModel
 
                 viewmodel.Reservation.RoomId = id;
+
 
     // Add new reservation to database
                 _context.Add(viewmodel.Reservation);

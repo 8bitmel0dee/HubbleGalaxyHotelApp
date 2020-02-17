@@ -3,46 +3,28 @@
 @{
     ViewData["Title"] = "Details";
 }
+    <body class="body-room-details" style="background-image: url('@Url.Content("https://i.imgur.com/GBBGDBg.jpg")');background-size: contain;">
+        
+        
 
-<h1>Room Details</h1>
+       
+        <div class="card bg-dark text-white border-white" style="width: 50rem; margin: 20px auto;">
+            <img src=@Html.DisplayFor(model => model.RoomImage) class="card-img-top" alt="...">
+            <div class="card-body border-top">
+                <h5 class="card-title text-center h1" style="text-shadow: 2px 2px #000000;">@Html.DisplayFor(model => model.RoomName)</h5>
+                <p class="card-text text-center h3" style="text-shadow: 2px 2px #000000;">@Html.DisplayFor(model => model.RoomDescription)</p>
+            </div>
+            <ul class="list-group list-group-flush bg-dark text-white">
+                <li class="list-group-item bg-dark text-white text-center">@Html.DisplayNameFor(model => model.RoomFeatures) :      @Html.DisplayFor(model => model.RoomFeatures)</li>
+                <li class="list-group-item bg-dark text-white text-center"></li>
+                <li class="list-group-item bg-dark text-white text-center font-weight-bold h2" style="text-shadow: 2px 2px #000000;">@Html.DisplayNameFor(model => model.PricePerNight) :      @Html.DisplayFor(model => model.PricePerNight)</li>
+            </ul>
 
-<div>
-    @*<h4>Room</h4>*@
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RoomName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PricePerNight)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PricePerNight)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomDescription)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RoomDescription)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomFeatures)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RoomFeatures)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomImage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RoomImage)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-controller="Reservations" asp-action="Create" asp-route-id="@Model.Id">Make A Reservation</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+            <div class="card-body" style="margin: 20px auto;">
+
+                <a class="btn btn-danger btn-lg text-center" role="button" aria-pressed="true" asp-controller="Reservations" asp-action="Create" asp-route-id="@Model.Id">Make a Reservation</a> |
+                <a class="btn btn-primary btn-lg text-center" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+            </div>
+
+        </div>
+    </body>
