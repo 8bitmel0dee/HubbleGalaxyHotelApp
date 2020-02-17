@@ -131,7 +131,7 @@ namespace HubbleGalaxyHotelApp.Data
                         Id = 6,
                         RoomName = "Gemini Space Capsule",
                         PricePerNight = 150.00,
-                        RoomDescription = "Replica Gemini capsule bed",
+                        RoomDescription = "Replica of NASA's Gemini capsule",
                         RoomFeatures = "Oversized “moon crater” whirlpool",
                         RoomImage = "https://i.imgur.com/FHsPwrE.jpg"
                     },
@@ -140,7 +140,7 @@ namespace HubbleGalaxyHotelApp.Data
                     {
                         Id = 7,
                         RoomName = "Futuristic Space Capsule",
-                        PricePerNight = 100.00,
+                        PricePerNight = 200.00,
                         RoomDescription = "Rooms are so yesterday. Stay in a sleeping capsule!",
                         RoomFeatures = "Staffed by friendly robots",
                         RoomImage = "https://i.imgur.com/zU3b0vF.jpg"
